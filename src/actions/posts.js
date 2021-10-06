@@ -9,3 +9,13 @@ export const getPosts = () => async (dispatch) => {
     console.log(err.message);
   }
 };
+
+export const createPost = (post) => async (dispatch) => {
+  //post is retreived from form elements,
+  try {
+    const { data } = await api.createPost(post); // then posted by api axios,
+    dispatch({ type: "CREATE", payload: data }); // then dispatched to action
+  } catch (err) {
+    console.log(err.message);
+  }
+};
